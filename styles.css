@@ -1,0 +1,652 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --purple: #820ad1;
+    --purple-dark: #6B07B0;
+    --dark: #0B0014;
+    --white: #fff;
+    --gray-text: #6B6B6B;
+}
+
+@font-face {
+    font-family: 'Okomito Next';
+    src: url('font/Okomito-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+body {
+    font-family: 'Okomito Next', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--dark);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* ─── Header ──────────────────────────────────────────────────────── */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 64px;
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    z-index: 99;
+    background-color: rgba(255, 255, 255, 0.85);
+}
+
+.logo-img {
+    height: 32px;
+}
+
+header nav {
+    display: flex;
+    gap: 25px;
+}
+
+header nav a {
+    color: var(--dark);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+header nav a:hover {
+    color: var(--purple);
+}
+
+.btn-nubank {
+    background-color: var(--purple);
+    color: var(--white);
+    padding: 12px 22px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+}
+
+.btn-nubank:hover {
+    background-color: var(--purple-dark);
+}
+
+/* ─── Hero ────────────────────────────────────────────────────────── */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    background-image: url('assets/background.webp');
+    background-size: cover;
+    background-position: center top;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+    border-radius: 0 0 40px 40px;
+}
+
+/* Overlay escuro correto com position: absolute */
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.72) 100%);
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 40px 60px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 48px;
+}
+
+.hero-text {
+    max-width: 480px;
+}
+
+.hero-text h1 {
+    color: var(--white);
+    font-size: 45px;
+    font-weight: 800;
+    margin-bottom: 24px;
+    line-height: 1.15;
+}
+
+/* ─── Hero Card ───────────────────────────────────────────────────── */
+.hero-card {
+    background-color: var(--white);
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    min-width: 320px;
+    max-width: 380px;
+    width: 100%;
+    flex-shrink: 0;
+}
+
+.hero-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.hero-card label {
+    display: block;
+    font-size: 13px;
+    margin-bottom: 8px;
+    color: var(--gray-text);
+    font-weight: 500;
+}
+
+.hero-card input {
+    width: 100%;
+    padding: 14px 16px;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    background-color: #f4f4f4;
+    font-family: inherit;
+    outline: none;
+    transition: background-color 0.2s ease;
+}
+
+.hero-card input:focus {
+    background-color: #ebebeb;
+}
+
+.btn-confirm {
+    width: 100%;
+    background-color: var(--purple);
+    color: var(--white);
+    padding: 14px;
+    border: none;
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: 700;
+    margin-top: 12px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background-color 0.3s ease;
+}
+
+.btn-confirm:hover {
+    background-color: var(--purple-dark);
+}
+
+/* ─── Services ────────────────────────────────────────────────────── */
+.services {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    padding: 52px 40px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.services::-webkit-scrollbar {
+    display: none;
+}
+
+.services a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    color: var(--dark);
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.services a:hover {
+    color: var(--purple);
+}
+
+/* ─── Card Section ────────────────────────────────────────────────── */
+.card-section {
+    background-color: var(--dark);
+    padding: 100px 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 64px;
+}
+
+.credit-card {
+    width: 360px;
+    min-width: 300px;
+    height: 220px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, var(--purple) 0%, var(--purple-dark) 100%);
+    padding: 30px;
+    box-shadow: 0 20px 60px rgba(130, 10, 209, 0.4);
+    flex-shrink: 0;
+}
+
+.card-chip {
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    width: 45px;
+    height: 35px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.card-number {
+    font-size: 22px;
+    color: rgba(255, 255, 255, 0.7);
+    letter-spacing: 4px;
+    margin-bottom: 40px;
+}
+
+.card-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-info span {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.card-info strong {
+    color: var(--white);
+    font-size: 22px;
+}
+
+.card-text {
+    max-width: 480px;
+}
+
+.card-text h2 {
+    color: var(--white);
+    font-size: 38px;
+    margin-bottom: 16px;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.card-text p {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 24px;
+    line-height: 1.7;
+    font-size: 16px;
+}
+
+.card-text ul {
+    list-style: none;
+    margin-bottom: 28px;
+}
+
+.card-text ul li {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 16px;
+    padding: 5px 0;
+    margin-bottom: 6px;
+}
+
+.card-text li::before {
+    content: '✓';
+    color: var(--purple);
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.btn-purple {
+    display: inline-block;
+    background-color: var(--purple);
+    color: var(--white);
+    padding: 14px 32px;
+    border: none;
+    border-radius: 30px;
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-purple:hover {
+    background-color: var(--purple-dark);
+    transform: translateY(-2px);
+}
+
+/* ─── CTA ─────────────────────────────────────────────────────────── */
+.cta {
+    padding: 100px 40px;
+    background: linear-gradient(135deg, var(--purple) 0%, #6B07B0 50%, var(--purple-dark) 100%);
+    text-align: center;
+}
+
+.cta h2 {
+    color: var(--white);
+    font-size: 36px;
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+
+.cta p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 32px;
+    line-height: 1.6;
+    font-size: 18px;
+}
+
+.cta .btn-cta {
+    display: inline-block;
+    background-color: var(--white);
+    color: var(--purple);
+    padding: 16px 40px;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cta .btn-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* ─── Footer ──────────────────────────────────────────────────────── */
+footer {
+    background-color: var(--dark);
+    padding: 60px 40px 30px;
+}
+
+.footer-top {
+    max-width: 1200px;
+    margin: 0 auto 40px;
+    display: flex;
+    gap: 60px;
+}
+
+.footer-first-child {
+    flex: 2;
+}
+
+.footer-first-child p {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
+    line-height: 1.7;
+    max-width: 260px;
+    margin-bottom: 16px;
+    margin-top: 8px;
+}
+
+.footer-links {
+    flex: 1;
+}
+
+.footer-logo {
+    height: 22px;
+    margin-bottom: 16px;
+}
+
+.footer-top h4 {
+    color: var(--white);
+    font-size: 13px;
+    margin-bottom: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-top a {
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--white);
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.footer-bottom p {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 12px;
+    font-weight: 500;
+}
+
+/* ─── ScrollSmoother wrapper ──────────────────────────────────────── */
+#smooth-wrapper {
+    overflow: hidden;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+#smooth-content {
+    overflow: visible;
+    width: 100%;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   RESPONSIVIDADE
+═══════════════════════════════════════════════════════════════════ */
+
+/* Tablet largo: até 1024px */
+@media (max-width: 1024px) {
+    header {
+        padding: 0 24px;
+        gap: 16px;
+    }
+
+    header nav {
+        gap: 16px;
+    }
+
+    header nav a {
+        font-size: 13px;
+    }
+
+    .hero-content {
+        padding: 0 24px 48px;
+        gap: 32px;
+    }
+
+    .hero-text h1 {
+        font-size: 36px;
+    }
+
+    .hero-card {
+        min-width: 280px;
+        max-width: 320px;
+        padding: 24px;
+    }
+
+    .card-section {
+        gap: 40px;
+        padding: 80px 24px;
+    }
+
+    .credit-card {
+        width: 300px;
+        min-width: 260px;
+    }
+
+    .card-text h2 {
+        font-size: 30px;
+    }
+
+    .footer-top {
+        gap: 32px;
+    }
+}
+
+/* Tablet: até 768px */
+@media (max-width: 768px) {
+    header {
+        padding: 0 20px;
+        height: 56px;
+    }
+
+    header nav {
+        display: none;
+    }
+
+    /* Hero empilhado */
+    .hero-content {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 20px 40px;
+        gap: 24px;
+    }
+
+    .hero-text {
+        max-width: 100%;
+    }
+
+    .hero-text h1 {
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+
+    .hero-card {
+        min-width: unset;
+        max-width: 100%;
+        width: 100%;
+    }
+
+    /* Services: grid em mobile para mostrar todos os itens */
+    .services {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        justify-items: center;
+        padding: 40px 20px;
+        gap: 24px 16px;
+        overflow-x: unset;
+    }
+
+    .services a {
+        white-space: normal;
+        text-align: center;
+        min-width: unset;
+        font-size: 12px;
+    }
+
+    /* Card section empilhado */
+    .card-section {
+        flex-direction: column;
+        padding: 60px 20px;
+        gap: 40px;
+        text-align: center;
+    }
+
+    .credit-card {
+        width: 100%;
+        max-width: 360px;
+        min-width: unset;
+    }
+
+    .card-text {
+        max-width: 100%;
+    }
+
+    .card-text h2 {
+        font-size: 28px;
+    }
+
+    .card-text ul li {
+        text-align: left;
+    }
+
+    /* CTA */
+    .cta {
+        padding: 60px 20px;
+    }
+
+    .cta h2 {
+        font-size: 26px;
+    }
+
+    .cta p {
+        font-size: 16px;
+    }
+
+    /* Footer empilhado */
+    footer {
+        padding: 48px 20px 24px;
+    }
+
+    .footer-top {
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    .footer-first-child p {
+        max-width: 100%;
+    }
+}
+
+/* Mobile pequeno: até 480px */
+@media (max-width: 480px) {
+    .hero-text h1 {
+        font-size: 26px;
+        line-height: 1.25;
+    }
+    
+    .hero-card {
+        padding: 20px;
+    }
+
+    .hero-card h3 {
+        font-size: 16px;
+    }
+
+    .cta h2 {
+        font-size: 22px;
+    }
+
+    .card-text h2 {
+        font-size: 24px;
+    }
+
+    .services {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px 12px;
+    }
+}
