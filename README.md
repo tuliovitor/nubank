@@ -34,7 +34,7 @@ O projeto é uma landing page estática, sem frameworks, com três áreas de ate
 
 | Desktop | Mobile |
 |---|---|
-| ![Desktop](./assets/preview-desktop.png) | ![Mobile](./assets/preview-mobile.png) |
+| ![Desktop](./assets/preview-desktop.png) | ![Mobile](./assets/preview-mobile.jpg) |
 
 ---
 
